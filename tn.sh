@@ -1,6 +1,19 @@
 #!/opt/exp/bin/bash
-DIR=/prod/lte/pb1/rphuyal/SHELL
-read -p "Your Note: "  note
+#simple note-taking script
+# get the date
+date=$(date)
+DIR=/home/rphuyal/rupesh1/test/Bash
+#filename to write to
+#filename="${DIR}/${topic}notes.txt
 
-echo $(date): $note >> ${DIR}/notes.txt
-echo Note saved: $note
+
+#get the topic
+topic=$1
+
+DIR=/home/rphuyal/rupesh1/test/Bash
+read -p "Your Note: "  note
+filename=${DIR}/${topic}notes.txt
+
+#echo $(date): $note >> ${DIR}/${topic}notes.txt
+echo ${date}: $note >> "$filename"
+echo "Note $note saved to $filename"
