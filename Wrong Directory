@@ -1,0 +1,33 @@
+#!/opt/exp/bin/bash
+
+TargetDirectory=/Users/rupesh/git/bash/WrongDirectory
+
+cd $TargetDirectory
+echo "Deleting stale file in $TargetDirectory"
+
+if [ "$PWD" != "$TargetDirectory" ]
+then
+echo "Wrong Directory"
+echo "In $PWD, rather than $TargetDirectory"
+echo "Bailing Out"
+exit $E_WRONG_DIRECTORY
+fi
+
+if [ -d $TargetDirectory ]
+then
+cd $TargetDirectory
+rm -rf *
+else
+echo "no directory exist. Do not proceed to delete"
+fi
+
+result=$?
+
+echo
+ls -al
+echo "Done"
+echo "Old files are deleted in $TargetDirectory"
+echo
+
+exit $result
+
